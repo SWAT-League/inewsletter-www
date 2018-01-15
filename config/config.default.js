@@ -9,6 +9,16 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
+  // local dev
+  config.sequelize = {
+    dialect: 'postgres',
+    database: 'inewsletter_db',
+    host: 'localhost',
+    port: '5432',
+    username: '',
+    password: '',
+  };
+
   config.view = {
     defaultViewEngine: 'handlebars',
     defaultExtension: '.hbs',

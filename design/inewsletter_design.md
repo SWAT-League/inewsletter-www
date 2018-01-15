@@ -4,15 +4,15 @@
 
 注册 /register
 
-注册确认链接 /register/*user_hashed_id*/confirm/some_code
+注册确认链接 /register/:username/confirm/:code
 
 新建 /digest/new
 
 编辑 /digest/id
 
-自己的digest列表 /digest
+自己的 digest列表 /digest
 
-供别人访问的digest列表 /user/*user_hashed_id*/digest
+供别人访问的digest列表 /user/:username/digest
 
 ## API
 
@@ -32,23 +32,24 @@ digest列表 api/digest
 
 | field       | type     | comment             |
 | ----------- | -------- | ------------------- |
-| id          | int      | 用户id                |
-| hashed_id   | varchar  | hash过后用户id，用于界面     |
-| email       | varchar  | 注册用的email           |
-| status      | tinyint  | email注册状态，0未激活，1已激活 |
-| create_time | datetime | 创建时间                |
-| update_time | datetime | 更新时间                |
+| id          | integer    | 用户id              |
+| username    | character varying(255)  | hash过后用户id，用于界面 |
+| email       | character varying(255)   | 注册用的email     |
+| email_verified  | boolean   | email注册状态     |
+| created_at | timestamp with timezone | 创建时间 |
+| updated_at | timestamp with timezone | 更新时间 |
+| deleted_at | timestamp with timezone | 删除时间 |
 
 ### Digest 文章摘要
 
 | field       | type     | comment           |
 | ----------- | -------- | ----------------- |
-| id          | int      | 文章id              |
-| hashed_id   | varchar  | hash过后文章摘要id，用于界面 |
-| link        | varchar  | 文章的链接             |
-| title       | varchar  | 文章的标题             |
-| content     | varchar  | 摘要内容              |
-| create_time | datetme  | 创建时间              |
-| update_time | datetime | 更新时间              |
-| deleted     | tinyint  | 已删除               |
-
+| id          | integer  | 文章id              |
+| hash        | varchar(255)  | hash过后文章摘要id，用于界面 |
+| link        | varchar(255)  | 文章的链接             |
+| title       | varchar(255)  | 文章的标题             |
+| content     | text     | 摘要内容                    |
+| created_at  | timestamp with timezone | 创建时间     |
+| updated_at  | timestamp with timezone | 更新时间     |
+| deleted     | boolean  | 是否已删除 |
+| deleted_at  | timestamp with timezone | 已删除       |

@@ -21,8 +21,11 @@
     "eslint-config-egg": "^6.0.0",
     "webstorm-disable-index": "^1.2.0"
   },
+  "peerDependencies": {
+    "mocha": "^4.1.0"
+  },
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=8.9.3"
   },
   "scripts": {
     "start": "egg-scripts start --daemon",
@@ -34,15 +37,16 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "migrate:new": "egg-sequelize migration:create",
+    "migrate:up": "egg-sequelize db:migrate",
+    "migrate:down": "egg-sequelize db:migrate:undo"
   },
   "ci": {
     "version": "8"
   },
   "repository": {
     "type": "git",
-    "url": ""
-  },
-  "author": "",
-  "license": "MIT"
+    "url": "https://github.com/SWAT-League/inewsletter-www"
+  }
 }
