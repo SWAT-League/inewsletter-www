@@ -6,6 +6,16 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1515943962113_5570';
 
+  config.session = true;
+
+  config.redis = {
+    client: {
+      port: 6379,
+      host: '127.0.0.1',
+      password: '',
+      db: 0,
+    },
+  };
   // add your config here
   config.middleware = [];
 
