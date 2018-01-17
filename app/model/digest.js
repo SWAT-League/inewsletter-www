@@ -1,7 +1,5 @@
 'use strict';
 
-const User = require('./user');
-
 module.exports = app => {
   const { STRING, BOOLEAN, TEXT } = app.Sequelize;
 
@@ -15,8 +13,9 @@ module.exports = app => {
     paranoid: true,
     underscored: true,
   });
-
-  Digest.belongsTo(User, { foreignKey: 'user_id' });
+  Digest.associate = function() {
+    app.model.Digest.belongsTo(app.model.User, { foreignKey: 'user_id' });
+  };
 
   return Digest;
 };

@@ -5,9 +5,9 @@ exports.redis = {
   package: 'egg-redis',
 };
 
-exports.handlebars = {
+exports.nunjucks = {
   enable: true,
-  package: 'egg-view-handlebars',
+  package: 'egg-view-nunjucks',
 };
 
 exports.sequelize = {

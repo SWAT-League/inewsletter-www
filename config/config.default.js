@@ -6,7 +6,12 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1515943962113_5570';
 
-  config.session = true;
+  config.session = {
+    key: 'EGG_SESS',
+    maxAge: 24 * 3600 * 1000, // 1 天
+    httpOnly: true,
+    encrypt: true,
+  };
 
   config.redis = {
     client: {
@@ -29,11 +34,10 @@ module.exports = appInfo => {
     password: '',
   };
 
-  config.view = {
-    defaultViewEngine: 'handlebars',
-    defaultExtension: '.hbs',
+  exports.view = {
+    defaultViewEngine: 'nunjucks',
     mapping: {
-      '.hbs': 'handlebars',
+      '.nj': 'nunjucks',
     },
   };
 

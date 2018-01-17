@@ -5,8 +5,11 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    await ctx.render('home');
+
+    const data = { username: 'yiliang' };
+    await ctx.render('home.nj', data);
   }
+
 }
 
 module.exports = HomeController;
