@@ -4,13 +4,17 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0",
     "egg": "^2.2.0",
     "egg-redis": "^1.0.2",
     "egg-scripts": "^2.5.0",
     "egg-sequelize": "^3.1.0",
     "egg-view-nunjucks": "^2.1.4",
+    "jquery": "^3.2.1",
+    "mocha": "^4.1.0",
     "pg": "^7.4.1",
-    "pg-hstore": "^2.3.2"
+    "pg-hstore": "^2.3.2",
+    "popper.js": "^1.12.9"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -21,9 +25,6 @@
     "eslint": "^4.15.0",
     "eslint-config-egg": "^6.0.0",
     "webstorm-disable-index": "^1.2.0"
-  },
-  "peerDependencies": {
-    "mocha": "^4.1.0"
   },
   "engines": {
     "node": ">=8.9.3"
