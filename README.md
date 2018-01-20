@@ -14,12 +14,16 @@ start db:
     pg_ctl -D /path/to/pg_data/inewsletter_db -l /path/to/pg_log/pg.log start
 
 
+start redis:
+
+    redis-server &
+
 ### Development
 
 ```bash
 $ npm i
-$ npm run dev
 $ npm run migrate:up
+$ npm run dev
 $ open http://localhost:7001/
 ```
 
