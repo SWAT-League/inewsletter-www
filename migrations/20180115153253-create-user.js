@@ -8,6 +8,8 @@ module.exports = {
     yield queryInterface.createTable('users', {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
       username: { type: STRING, allowNull: false },
+      password: { type: STRING, allowNull: false },
+      sault: { type: STRING, allowNull: false },
       email: { type: STRING, allowNull: true },
       email_verified: { type: BOOLEAN, defaultValue: false, allowNull: false },
       last_login_at: DATE,

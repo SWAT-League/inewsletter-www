@@ -10,6 +10,8 @@
     "egg-scripts": "^2.5.0",
     "egg-sequelize": "^3.1.0",
     "egg-view-nunjucks": "^2.1.4",
+    "faker": "^4.1.0",
+    "joi": "^13.1.1",
     "jquery": "^3.2.1",
     "mocha": "^4.1.0",
     "pg": "^7.4.1",
