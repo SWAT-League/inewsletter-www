@@ -22,7 +22,7 @@ module.exports = appInfo => {
     },
   };
   // add your config here
-  config.middleware = [];
+  config.middleware = [ 'responseTime' ];
 
   // local dev
   config.sequelize = {
