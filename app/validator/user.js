@@ -13,6 +13,10 @@ module.exports = {
     username: Joi.string().regex(REGEX[USERNAME]).required(),
     password: Joi.string().regex(REGEX[USERNAME]),
     password2: Joi.string().regex(REGEX[USERNAME]),
-
   }).with('username', [ 'password', 'password2' ]),
+
+  signin: Joi.object().keys({
+    username: Joi.string().regex(REGEX[USERNAME]).required(),
+    password: Joi.string().regex(REGEX[USERNAME]).required(),
+  }),
 };

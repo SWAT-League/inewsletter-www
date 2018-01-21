@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-    {{message}}
+    {{ message }}
     <h1>Sign Up</h1>
     <form method="POST" action="/signup">
      username:<br>

@@ -16,13 +16,24 @@ class PassportController extends Controller {
 
     const { username, password } = ctx.request.body;
 
-    const user = await ctx.model.User.findByUsername(username);
+    const result = Joi.validate({ username, password }, userValidator.signin);
+    if (result.error) {
+      // TODO
+      ctx.logger.error(result.error);
 
-    if (user && user.password === password) {
+      await ctx.render('signin.nj', { message: result.error.toString() });
+      return;
+    }
+
+    const user = await ctx.service.user.signin(username, password);
+
+    if (user) {
+      this.logger.info(`userId: ${user.id} logged in`);
       ctx.session.userId = user.id;
-      ctx.redirect('http://localhost:3000/');
+      this.logger.info(JSON.stringify(ctx.session));
+      await ctx.redirect('home.nj');
     } else {
-      ctx.render('signin.nj', { message: 'user does not exist' });
+      await ctx.render('signin.nj', { message: 'password incorrect or account doesn\'t exist' });
     }
   }
 
@@ -38,27 +49,22 @@ class PassportController extends Controller {
     if (result.error) {
       // TODO
       ctx.logger.error(result.error);
-      ctx.body = await ctx.renderString(result.error.toString());
-      return;
+
+      await ctx.render('signup.nj', { message: result.error.toString() });
     }
 
     if (password !== password2) {
-      ctx.body = await ctx.renderString('passwords are not same');
+      await ctx.render('signup.nj', { message: 'passwords are not same' });
       return;
     }
 
-    // check duplicated username
-    let user = await ctx.model.User.findByUsername(username);
-    if (user) {
-      // TODO
-      ctx.body = await ctx.renderString('username existed');
+    const newUser = await ctx.service.user.signup(username, password);
+
+    if (!newUser) {
+      await ctx.render('signup.nj', { message: 'user already exists' });
       return;
     }
-
-    // create user
-    user = await ctx.model.User.createUser({ username, password });
-
-    ctx.body = await ctx.renderString('signed up');
+    ctx.redirect('/signin');
   }
 }
 
