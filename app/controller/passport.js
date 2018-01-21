@@ -31,6 +31,7 @@ class PassportController extends Controller {
       this.logger.info(`User id: ${user.id} (${user.username}) logged in`);
       ctx.session.userId = user.id;
       this.logger.info(JSON.stringify(ctx.session));
+      ctx.status = 303;
       await ctx.redirect('home.nj');
     } else {
       await ctx.render('signin.nj', { message: 'password incorrect or account doesn\'t exist' });
@@ -64,6 +65,7 @@ class PassportController extends Controller {
       await ctx.render('signup.nj', { message: 'user already exists' });
       return;
     }
+    ctx.status = 303;
     ctx.redirect('/signin');
   }
 }
