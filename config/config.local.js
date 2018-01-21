@@ -13,22 +13,22 @@ module.exports = appInfo => {
     encrypt: true,
   };
 
-  // add your config here
-  config.middleware = [ 'responseTime' ];
-
-  exports.view = {
-    defaultViewEngine: 'nunjucks',
-    mapping: {
-      '.nj': 'nunjucks',
+  config.redis = {
+    client: {
+      port: 6379,
+      host: 'localhost',
+      password: '',
+      db: 0,
     },
   };
 
-  exports.joi = {
-    options: {},
-    locale: {
-      'zh-cn': {},
-    },
-    throw: true,
+  config.sequelize = {
+    dialect: 'postgres',
+    database: 'inewsletter_db',
+    host: 'localhost',
+    port: '5432',
+    username: '',
+    password: '',
   };
 
   return config;
