@@ -15,6 +15,7 @@ class UserService extends Service {
     hash.update(user.sault);
     const pwdToCheck = hash.digest('hex');
     if (pwdToCheck === user.password) {
+      user.update({ last_login_at: new Date() });
       return user;
     }
     return;
@@ -34,7 +35,7 @@ class UserService extends Service {
     return newUser;
   }
   async getUserById(id) {
-    return await this.ctx.model.User.findOne({ id });
+    return await this.ctx.model.User.findOne({ where: { id } });
   }
 }
 module.exports = UserService;

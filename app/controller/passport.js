@@ -28,7 +28,7 @@ class PassportController extends Controller {
     const user = await ctx.service.user.signin(username, password);
 
     if (user) {
-      this.logger.info(`userId: ${user.id} logged in`);
+      this.logger.info(`User id: ${user.id} (${user.username}) logged in`);
       ctx.session.userId = user.id;
       this.logger.info(JSON.stringify(ctx.session));
       await ctx.redirect('home.nj');
