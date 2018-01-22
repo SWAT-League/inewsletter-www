@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "co": "^4.6.0",
     "egg": "^2.2.0",
     "egg-redis": "^1.0.2",
     "egg-scripts": "^2.5.0",
@@ -12,11 +12,8 @@
     "egg-view-nunjucks": "^2.1.4",
     "faker": "^4.1.0",
     "joi": "^13.1.1",
-    "jquery": "^3.2.1",
-    "mocha": "^4.1.0",
     "pg": "^7.4.1",
-    "pg-hstore": "^2.3.2",
-    "popper.js": "^1.12.9"
+    "pg-hstore": "^2.3.2"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -24,7 +21,7 @@
     "egg-bin": "^4.3.7",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.14.0",
-    "eslint": "^4.15.0",
+    "eslint": "^4.16.0",
     "eslint-config-egg": "^6.0.0",
     "webstorm-disable-index": "^1.2.0"
   },
