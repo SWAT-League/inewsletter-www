@@ -1,1 +1,4 @@
+{% extends "layout.nj" %}
+{% block body %}
 Hi, {{ user.username }}
+{% endblock %}

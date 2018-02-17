@@ -1,7 +1,5 @@
-<html>
-  <head>
-  </head>
-  <body>
+{% extends "layout.nj" %}
+{% block body %}
     {{ message }}
     <h1>Sign Up</h1>
     <form method="POST" action="/signup">
@@ -13,5 +11,4 @@
      <input type="password" name="password2"><br>
      <button type="submit">sign up</button>
     </form>
-  </body>
-</html>
+{% endblock %}
